@@ -11,8 +11,10 @@ export interface globalStateInterface {
     contractAddress: string;
 	totalSupply:number;
 	winner: number;
+	ownedToken: number;
 }
 export const globalState: Writable<globalStateInterface> = writable({
+	ownedToken: 0,
 	totalSupply: 0,
 	winner: 0,
     chainId:undefined,

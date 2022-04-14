@@ -1,90 +1,94 @@
 <script lang="ts" context="module">
-	import { BigNumber, ethers } from 'ethers';
-	import { globalState } from '../stores';
-	import { get } from 'svelte/store';
+  import { BigNumber, ethers } from "ethers";
+  import { globalState } from "../stores";
+  import { get } from "svelte/store";
 
-	export async function getNftDetails(
-		forAccount: string,
-		contractAddress: string,
-		provider: ethers.providers.Web3Provider
-	): Promise<object> {
-		try {
-			if (!ethers.utils.isAddress(forAccount)) {
-				console.log(forAccount, ' account is not an address');
-				return;
-			}
-			console.log('checking...');
-			const contract = new ethers.Contract(
-				contractAddress,
-				[
-					'function totalSupply() public view returns (uint256)',
-					'function _winner() public view returns (uint256)',
-				],
-				provider
-			);
-			// const nftId = await contract.getIdForAccount(forAccount);
-			const promises = [contract.totalSupply(), contract._winner()];
-			const [supply, winner] = await Promise.all(promises);
-			console.log(supply,winner);
-			return { totalSupply:supply, winner}
-		} catch (error) {
-			console.error(error);
-			return {};
-		}
-	}
-	export async function checkNftExists(
-		forAccount: string,
-		contractAddress: string,
-		provider: ethers.providers.Web3Provider
-	): Promise<boolean> {
-		try {
-			if (!ethers.utils.isAddress(forAccount)) {
-				// console.log(address, ' is not an address')
-				return;
-			}
-			console.log('checking nft for ...', contractAddress);
-			const contract = new ethers.Contract(
-				contractAddress,
-				['function balanceOf(address who) public view returns (uint256)'],
-				provider
-			);
-			const result = await contract.balanceOf(forAccount);
-			const numResult = BigNumber.from(result).toNumber();
-			console.log('balanceof:', forAccount, ' -> ', numResult);
-			return numResult > 0;
-		} catch (error) {
-			console.error(error);
-			return false;
-		}
-	}
-	export async function mintNft(
-		prov:ethers.providers.Web3Provider,
-		contractAddress:string,
-		transmittedCb: any,
-		successCb: any,
-		failCb: any
-	): Promise<boolean> {
-		try {
-			const contract = new ethers.Contract(
-				contractAddress,
-				[
-					'function searchForAfikoman() public'
-				],
-				prov.getSigner()
-			);
+  export async function getNftDetails(
+    forAccount: string,
+    contractAddress: string,
+    provider: ethers.providers.Web3Provider
+  ): Promise<object> {
+    try {
+      if (!ethers.utils.isAddress(forAccount)) {
+        console.log(forAccount, " account is not an address");
+        return;
+      }
+      console.log("checking...");
+      const contract = new ethers.Contract(
+        contractAddress,
+        [
+          "function tokenOfOwnerByIndex(address,uint256) public view returns (uint256)",
+          "function totalSupply() public view returns (uint256)",
+          "function _winner() public view returns (uint256)",
+        ],
+        provider
+      );
+      // const nftId = await contract.getIdForAccount(forAccount);
+      const promises = [
+        contract.totalSupply(),
+        contract._winner(),
+        contract.tokenOfOwnerByIndex(forAccount, 0),
+      ];
+      const [supply, winner, ownedToken] = await Promise.all(promises);
+      console.log(supply, winner);
+      return { totalSupply: supply, winner, ownedToken };
+    } catch (error) {
+      console.error(error);
+      return {};
+    }
+  }
+  export async function checkNftExists(
+    forAccount: string,
+    contractAddress: string,
+    provider: ethers.providers.Web3Provider
+  ): Promise<boolean> {
+    try {
+      if (!ethers.utils.isAddress(forAccount)) {
+        // console.log(address, ' is not an address')
+        return;
+      }
+      console.log("checking nft for ...", contractAddress);
+      const contract = new ethers.Contract(
+        contractAddress,
+        ["function balanceOf(address who) public view returns (uint256)"],
+        provider
+      );
+      const result = await contract.balanceOf(forAccount);
+      const numResult = BigNumber.from(result).toNumber();
+      console.log("balanceof:", forAccount, " -> ", numResult);
+      return numResult > 0;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+  export async function mintNft(
+    prov: ethers.providers.Web3Provider,
+    contractAddress: string,
+    transmittedCb: any,
+    successCb: any,
+    failCb: any
+  ): Promise<boolean> {
+    try {
+      const contract = new ethers.Contract(
+        contractAddress,
+        ["function searchForAfikoman() public"],
+        prov.getSigner()
+      );
 
-			// debugger;
+      // debugger;
 
-			const tx: ethers.providers.TransactionResponse = await contract.searchForAfikoman( );
-			// debugger;
-			transmittedCb();
-			await contract.provider.waitForTransaction(tx.hash, 1);
-			successCb();
-			return true;
-		} catch (error) {
-			console.error(error);
-			failCb();
-			return false;
-		}
-	}
+      const tx: ethers.providers.TransactionResponse =
+        await contract.searchForAfikoman();
+      // debugger;
+      transmittedCb();
+      await contract.provider.waitForTransaction(tx.hash, 1);
+      successCb();
+      return true;
+    } catch (error) {
+      console.error(error);
+      failCb();
+      return false;
+    }
+  }
 </script>
