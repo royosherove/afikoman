@@ -13,7 +13,6 @@
     // }
     // connect();
   });
-
   async function mint() {
     await mintNft(
       $globalState.provider,

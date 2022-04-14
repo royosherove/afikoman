@@ -89,8 +89,9 @@
 
       // debugger;
 
+      const gasFee = await prov.getFeeData();
       const tx: ethers.providers.TransactionResponse =
-        await contract.searchForAfikoman();
+        await contract.searchForAfikoman({ gasPrice: gasFee });
       // debugger;
       transmittedCb();
       await contract.provider.waitForTransaction(tx.hash, 1);
