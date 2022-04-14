@@ -17,18 +17,16 @@
 			const contract = new ethers.Contract(
 				contractAddress,
 				[
-					'function balanceOf(address who) public view returns (uint256)',
-					'function getIdForAccount(address who) public view returns (uint256)',
-					'function getVerifyCodeForId(uint256 id) public view returns (string)',
-					'function getTimestampforId(uint256 id) public view returns (uint256)'
+					'function totalSupply() public view returns (uint256)',
+					'function _winner() public view returns (uint256)',
 				],
 				provider
 			);
-			const nftId = await contract.getIdForAccount(forAccount);
-			const promises = [contract.getTimestampforId(nftId), contract.getVerifyCodeForId(nftId)];
-			const [timestamp, verifyCode] = await Promise.all(promises);
-			console.log(nftId, verifyCode, timestamp);
-			return { verificationHash: String(verifyCode), timestamp, nftId };
+			// const nftId = await contract.getIdForAccount(forAccount);
+			const promises = [contract.totalSupply(), contract._winner()];
+			const [supply, winner] = await Promise.all(promises);
+			console.log(supply,winner);
+			return { totalSupply:supply, winner}
 		} catch (error) {
 			console.error(error);
 			return {};

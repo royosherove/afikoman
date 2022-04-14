@@ -2,6 +2,7 @@
   import { ethers } from "ethers";
   import { onMount } from "svelte";
   import { globalState } from "./../stores";
+import { getNftDetails } from "./kycUtils.svelte";
 
   onMount(async () => {
     const win = window as any;
@@ -25,6 +26,13 @@
     $globalState.contractAddress = '0x9dA9d1c92Bf2aC5cd21925242Ff854932465df5C';
 	
     console.log("wallet connected");
+    const result:any = await getNftDetails(
+      $globalState.accounts[0],
+      $globalState.contractAddress,
+      $globalState.provider
+    );
+    $globalState.totalSupply = result.totalSupply;
+    $globalState.winner = result.winner;
   }
 </script>
 
