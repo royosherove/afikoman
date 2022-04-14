@@ -15,6 +15,11 @@
       href: "https://discord.gg/BHhkqmUF",
       logo: "discord.png",
     },
+    {
+      name: "OpenSea",
+      href: "https://opensea.io/collection/web3il-afikoman-2022",
+      logo: "opensea.png",
+    },
   ];
 </script>
 

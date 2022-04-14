@@ -29,7 +29,7 @@ export const globalState: Writable<globalStateInterface> = writable({
 	winner: 0,
     chainId:undefined,
     balance: '?',
-    contractAddress: '0xf3315750a88AB66A730C6813B43FC03248baC7D3',
+    contractAddress: '0xd67fcf350B9F5C87B83d8c5d60C340D9A0ee7452',
 	minted: false,
 	walletConnected: false,
 	accounts: [],

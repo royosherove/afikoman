@@ -27,6 +27,6 @@ import LinksBoard from "$lib/LinksBoard.svelte";
         Credits: Yotam Bar-On, ChagitR, Royo
       </div>
       <a href='https://github.com/royosherove/afikoman' class="text-blue-400 ">github</a>
-      <a href='https://mumbai.polygonscan.com/address/0x9dA9d1c92Bf2aC5cd21925242Ff854932465df5C#code' class="text-blue-400 ">contract</a>
+      <a href='https://polygonscan.com/address/{$globalState.contractAddress}#code' class="text-blue-400 ">contract</a>
   </div>
 </body>
