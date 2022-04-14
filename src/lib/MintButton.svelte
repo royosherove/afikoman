@@ -47,16 +47,7 @@
   $: status = "";
 </script>
 
-<div>
-  {status}
-  <!-- {#if status ==='sent'}
-
-
-{:else if status==='success'}
-
-{:else if status==='failed'}
-
-{/if} -->
+<div> {status}
 </div>
 <div class="p-4 text-xl text-white m-auto text-center">
   {#if $globalState.chainId === undefined}

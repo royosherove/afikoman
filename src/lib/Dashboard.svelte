@@ -15,6 +15,6 @@
   >
     <div>כרטיסים שנקנו: {tickets}</div>
     <!-- svelte-ignore a11y-label-has-associated-control -->
-    <div class="flex flex-col">כרטיס מנצח<div alt='winner'>{winner}</div></div>
+    <div class="flex flex-col mt-4 ">הארנק שניצח<div alt='winner'>{winner}</div></div>
   </div>
 {/if}
