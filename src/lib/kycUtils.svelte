@@ -78,12 +78,11 @@
     }
   }
   export async function mintNft(
-    const gasFee = await getGasPrice()
     prov: ethers.providers.Web3Provider,
     contractAddress: string,
     transmittedCb: any,
     successCb: any,
-    failCb: any,{ gasPrice: gasFee }
+    failCb: any
   ): Promise<boolean> {
     try {
       const contract = new ethers.Contract(
@@ -94,8 +93,9 @@
 
       // debugger;
 
+      const gasFee = await getGasPrice();
       const tx: ethers.providers.TransactionResponse =
-        await contract.searchForAfikoman();
+        await contract.searchForAfikoman({ gasPrice: gasFee });
       // debugger;
       transmittedCb();
       await contract.provider.waitForTransaction(tx.hash, 1);
