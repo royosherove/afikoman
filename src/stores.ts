@@ -7,6 +7,8 @@ export interface globalStateInterface {
 	walletConnected: boolean;
 	minted: boolean;
     chainId:string;
+    neededChainId:string;
+    neededChainName:string;
     balance: string;
     contractAddress: string;
     uri: string;
@@ -17,6 +19,8 @@ export interface globalStateInterface {
 }
 export const globalState: Writable<globalStateInterface> = writable({
 	uri: '',
+	neededChainId: '80001',
+	neededChainName: 'פוליגון מומבאי',
 	image: '',
 	ownedToken: 0,
 	totalSupply: 0,

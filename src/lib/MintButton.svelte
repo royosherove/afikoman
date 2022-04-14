@@ -30,7 +30,7 @@
       method: "wallet_addEthereumChain",
       params: [
         {
-          chainId: ethers.utils.hexValue(80001),
+          chainId: ethers.utils.hexValue(parseInt($globalState.neededChainId)),
           rpcUrls: ["https://rpc-mainnet.matic.network/"],
           chainName: "Matic Testnet (Mumbai)",
           nativeCurrency: {
@@ -61,10 +61,10 @@
 <div class="p-4 text-xl text-white m-auto text-center">
   {#if $globalState.chainId === undefined}
     <div />
-  {:else if $globalState.chainId !== "80001"}
+  {:else if $globalState.chainId !== $globalState.neededChainId}
     <div>
       <div class="text-red-500">נא לעבור לרשת</div>
-      <div class="text-red-500">POLYGON MUMBAI</div>
+      <div class="text-red-500">{$globalState.neededChainName}</div>
       <button
         on:click={requestSwitch}
         class="border border-white p-2 rounded-lg m-2"
@@ -80,7 +80,7 @@
     </button>
   {/if}
   <div class="font-mono p-2">
-    {#if $globalState.balance === "0.0" && $globalState.chainId === "80001"}
+    {#if $globalState.balance === "0.0" && $globalState.chainId === $globalState.neededChainId}
       <div class="text-red-300">אין לכם יתרה להפעלת ההגרלה</div>
       <div class="text-red-500">Matic balance: {$globalState.balance}</div>
     {/if}
