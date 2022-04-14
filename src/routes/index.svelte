@@ -5,7 +5,7 @@
   import { globalState } from "../stores";
 </script>
 
-<body class="bg-black text-white text-center flex flex-col">
+<body class="bg-black text-white text-center flex flex-col font-heebo">
   <ConnectButton />
   <h1 class="text-center text-white p-12 mt-2 text-6xl">האפיקומן</h1>
   <h1 class="text-center text-white text-2xl">של קהילת ווב3</h1>
