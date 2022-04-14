@@ -16,7 +16,7 @@ import LinksBoard from "$lib/LinksBoard.svelte";
     <div class="text-center">
       <img src={$globalState.image} alt="NFT" class="mx-auto my-2 h-64" />
       <div class="text-gray-400 p-4">
-        קנית כרטיס מספר {$globalState.ownedToken}
+        אתה המחפש מספר {$globalState.ownedToken}
       </div>
     </div>
   {/if}
@@ -24,7 +24,7 @@ import LinksBoard from "$lib/LinksBoard.svelte";
   <LinksBoard/>
   <div class="fixed bottom-0 p-2 m-auto text-center text-gray-400 text-sm italic flex space-x-6">
       <div class="">
-        Credits: Yotam Bar-On, ChagitR, Royo
+        Credits: Yotam Bar-On, ChagitR, Royo, Eylon
       </div>
       <a href='https://github.com/royosherove/afikoman' class="text-blue-400 ">github</a>
       <a href='https://mumbai.polygonscan.com/address/0x9dA9d1c92Bf2aC5cd21925242Ff854932465df5C#code' class="text-blue-400 ">contract</a>
