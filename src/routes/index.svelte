@@ -20,7 +20,10 @@
     </div>
   {/if}
   <Dashboard />
-  <div class="fixed bottom-0 p-2 m-auto text-center text-gray-400 text-xs italic">
-    Credits: Yotam Bar-On, ChagitR, Royo
+  <div class="fixed bottom-0 p-2 m-auto text-center text-gray-400 text-xs italic flex space-x-4">
+      <div class="">
+        Credits: Yotam Bar-On, ChagitR, Royo
+      </div>
+      <a href='https://github.com/royosherove/afikoman' class="text-blue-500 underline">github</a>
   </div>
 </body>
