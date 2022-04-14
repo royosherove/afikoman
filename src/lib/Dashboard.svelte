@@ -7,6 +7,8 @@
   onMount(async () => {});
   $: tickets = $globalState.totalSupply;
   $: winner = $globalState.winner;
+  $: hasWinner = $globalState.winner !==0x0000000000000000000000000000000000000000
+;
 </script>
 
 {#if $globalState.chainId === $globalState.neededChainId}
@@ -15,6 +17,8 @@
   >
     <div>כרטיסים שנקנו: {tickets}</div>
     <!-- svelte-ignore a11y-label-has-associated-control -->
+{#if hasWinner}
     <div class="flex flex-col mt-4 ">הארנק שניצח<div alt='winner'>{winner}</div></div>
+{/if}
   </div>
 {/if}
