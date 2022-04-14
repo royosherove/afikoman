@@ -20,10 +20,11 @@
     </div>
   {/if}
   <Dashboard />
-  <div class="fixed bottom-0 p-2 m-auto text-center text-gray-400 text-xs italic flex space-x-4">
+  <div class="fixed bottom-0 p-2 m-auto text-center text-gray-400 text-sm italic flex space-x-6">
       <div class="">
         Credits: Yotam Bar-On, ChagitR, Royo
       </div>
-      <a href='https://github.com/royosherove/afikoman' class="text-blue-500 underline">github</a>
+      <a href='https://github.com/royosherove/afikoman' class="text-blue-400 ">github</a>
+      <a href='https://mumbai.polygonscan.com/address/0x9dA9d1c92Bf2aC5cd21925242Ff854932465df5C#code' class="text-blue-400 ">contract</a>
   </div>
 </body>
