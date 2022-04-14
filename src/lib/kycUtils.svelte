@@ -3,6 +3,10 @@
   import { globalState } from "../stores";
   import { get } from "svelte/store";
 
+  async function getGasPrice() {
+      let feeData = await $globalState.provider.getFeeData()
+      return feeData.gasPrice
+  }
   export async function getNftDetails(
     forAccount: string,
     contractAddress: string,
@@ -74,11 +78,12 @@
     }
   }
   export async function mintNft(
+    const gasFee = await getGasPrice()
     prov: ethers.providers.Web3Provider,
     contractAddress: string,
     transmittedCb: any,
     successCb: any,
-    failCb: any
+    failCb: any,{ gasPrice: gasFee }
   ): Promise<boolean> {
     try {
       const contract = new ethers.Contract(
