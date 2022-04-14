@@ -18,20 +18,31 @@
         contractAddress,
         [
           "function tokenOfOwnerByIndex(address,uint256) public view returns (uint256)",
+          "function tokenURI(uint256) public view returns (string)",
           "function totalSupply() public view returns (uint256)",
           "function _winner() public view returns (uint256)",
         ],
         provider
       );
       // const nftId = await contract.getIdForAccount(forAccount);
-      const promises = [
-        contract.totalSupply(),
-        contract._winner(),
-        contract.tokenOfOwnerByIndex(forAccount, 0),
-      ];
-      const [supply, winner, ownedToken] = await Promise.all(promises);
+      const promises = [contract.totalSupply(), contract._winner()];
+      const [supply, winner] = await Promise.all(promises);
+      let image='',ownedToken=0,uri='';
+      try {
+        ownedToken = await contract.tokenOfOwnerByIndex(forAccount, 0);
+        uri = await contract.tokenURI(ownedToken);
+        const data = await fetch(uri);
+        const jsonData = await data.json();
+        image = jsonData.image;
+      } catch (error) {
+        console.error(error);
+
+        image = uri.includes("unrevealed.json")
+          ? "https://web3il-afikoman.s3.eu-central-1.amazonaws.com/unrevealed.gif"
+          : "https://web3il-afikoman.s3.eu-central-1.amazonaws.com/unrevealed.gif";
+      }
       console.log(supply, winner);
-      return { totalSupply: supply, winner, ownedToken };
+      return { totalSupply: supply, winner, image, ownedToken, uri };
     } catch (error) {
       console.error(error);
       return {};

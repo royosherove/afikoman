@@ -9,11 +9,15 @@ export interface globalStateInterface {
     chainId:string;
     balance: string;
     contractAddress: string;
+    uri: string;
+    image: string;
 	totalSupply:number;
 	winner: number;
 	ownedToken: number;
 }
 export const globalState: Writable<globalStateInterface> = writable({
+	uri: '',
+	image: '',
 	ownedToken: 0,
 	totalSupply: 0,
 	winner: 0,

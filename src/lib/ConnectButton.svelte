@@ -34,6 +34,8 @@ import { getNftDetails } from "./kycUtils.svelte";
     $globalState.totalSupply = result.totalSupply;
     $globalState.winner = result.winner;
     $globalState.ownedToken = result.ownedToken;
+    $globalState.uri = result.uri;
+    $globalState.image = result.image;
   }
 </script>
 
