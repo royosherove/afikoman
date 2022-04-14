@@ -9,14 +9,17 @@ import LinksBoard from "$lib/LinksBoard.svelte";
 <body class="bg-black text-white text-center flex flex-col font-heebo">
   <ConnectButton />
   <h1 class="text-center text-white p-12 mt-2 text-6xl">האפיקומן</h1>
-  <h1 class="text-center text-white text-2xl">של קהילת ווב3</h1>
+  <h1 class="text-center text-white text-2xl"ב״ט מעבדות לחירות, חג אביב שמח! <br />שמחים להזמין אתכם למשחק חיפוש האפיקומן של קהילת ווב3 ישראל</h1>
+  
   {#if $globalState.ownedToken === undefined || $globalState.ownedToken === 0}
     <MintButton />
   {:else}
     <div class="text-center">
       <img src={$globalState.image} alt="NFT" class="mx-auto my-2 h-64" />
+      <p style="text-align: right;">?איך זה עובד</p>
+<p style="text-align: right;">יצרנו חוזה חכם והטמנו בתוכו ״אפיקומן״<br />כל כתובת יכולה ״לחפש״ את האפיקומן פעם אחת בחוזה<br />בתום סדר הפסח החוזה חכם יגיד לנו מי מהמחפשים ניצח ומצא את האפיקומן<br />כל המשתתפים יזכו בניפטי השתתפות, אבל רק אחד יקבל את חבילת הפרס - הזכות לבחור נושא / פרוייקט מעניין, וחברי הקהילה וצוות המחקר של קוליידר יבצעו מחקר ויפרסמו את הסקירה בקהילה בספייס הבא בטוויטר</p>
       <div class="text-gray-400 p-4">
-        אתה המחפש מספר {$globalState.ownedToken}
+        את.ה המחפש.ת מספר {$globalState.ownedToken}
       </div>
     </div>
   {/if}
