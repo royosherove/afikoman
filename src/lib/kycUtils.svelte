@@ -20,7 +20,7 @@
           "function tokenOfOwnerByIndex(address,uint256) public view returns (uint256)",
           "function tokenURI(uint256) public view returns (string)",
           "function totalSupply() public view returns (uint256)",
-          "function _winner() public view returns (uint256)",
+          "function _winner() public view returns (address)",
         ],
         provider
       );
