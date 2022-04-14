@@ -1,6 +1,7 @@
 <script lang="ts">
   import ConnectButton from "$lib/ConnectButton.svelte";
   import Dashboard from "$lib/Dashboard.svelte";
+import LinksBoard from "$lib/LinksBoard.svelte";
   import MintButton from "$lib/MintButton.svelte";
   import { globalState } from "../stores";
 </script>
@@ -20,6 +21,7 @@
     </div>
   {/if}
   <Dashboard />
+  <LinksBoard/>
   <div class="fixed bottom-0 p-2 m-auto text-center text-gray-400 text-sm italic flex space-x-6">
       <div class="">
         Credits: Yotam Bar-On, ChagitR, Royo
