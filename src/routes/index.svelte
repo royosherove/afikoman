@@ -10,7 +10,6 @@ import LinksBoard from "$lib/LinksBoard.svelte";
   <ConnectButton />
   <h1 class="text-center text-white p-12 mt-2 text-6xl">האפיקומן</h1>
   <h1 class="text-center text-white text-2xl"ב״ט מעבדות לחירות, חג אביב שמח! <br />שמחים להזמין אתכם למשחק חיפוש האפיקומן של קהילת ווב3 ישראל</h1>
-  
   {#if $globalState.ownedToken === undefined || $globalState.ownedToken === 0}
     <MintButton />
   {:else}
