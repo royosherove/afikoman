@@ -31,8 +31,8 @@
       params: [
         {
           chainId: ethers.utils.hexValue(parseInt($globalState.neededChainId)),
-          rpcUrls: ["https://rpc-mainnet.matic.network/"],
-          chainName: "Matic Testnet (Mumbai)",
+          rpcUrls: [$globalState.neededChainRPC],
+          chainName: $globalState.neededChainId,
           nativeCurrency: {
             name: "MATIC",
             symbol: "MATIC",
