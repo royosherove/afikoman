@@ -3,10 +3,6 @@
   import { globalState } from "../stores";
   import { get } from "svelte/store";
 
-  async function getGasPrice() {
-      let feeData = await $globalState.provider.getFeeData()
-      return feeData.gasPrice
-  }
   export async function getNftDetails(
     forAccount: string,
     contractAddress: string,
@@ -93,7 +89,7 @@
 
       // debugger;
 
-      const gasFee = await getGasPrice();
+      const gasFee = await prov.getFeeData();
       const tx: ethers.providers.TransactionResponse =
         await contract.searchForAfikoman({ gasPrice: gasFee });
       // debugger;
