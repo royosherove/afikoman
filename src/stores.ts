@@ -19,15 +19,15 @@ export interface globalStateInterface {
 }
 export const globalState: Writable<globalStateInterface> = writable({
 	uri: '',
-	neededChainId: '80001',
-	neededChainName: 'פוליגון מומבאי',
+	neededChainId: '137',
+	neededChainName: 'פוליגון',
 	image: '',
 	ownedToken: 0,
 	totalSupply: 0,
 	winner: 0,
     chainId:undefined,
     balance: '?',
-    contractAddress: '',
+    contractAddress: '0xf3315750a88AB66A730C6813B43FC03248baC7D3',
 	minted: false,
 	walletConnected: false,
 	accounts: [],
