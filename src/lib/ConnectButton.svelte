@@ -23,7 +23,6 @@ import { getNftDetails } from "./kycUtils.svelte";
     $globalState.accounts = newaccounts;
     $globalState.walletConnected = true;
     $globalState.balance = ethers.utils.formatEther(await $globalState.provider.getBalance(newaccounts[0]));
-    $globalState.contractAddress = '0xf3315750a88AB66A730C6813B43FC03248baC7D3';
 	
     console.log("wallet connected");
     const result:any = await getNftDetails(
