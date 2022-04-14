@@ -9,6 +9,7 @@ export interface globalStateInterface {
     chainId:string;
     neededChainId:string;
     neededChainName:string;
+    neededChainRPC:string;
     balance: string;
     contractAddress: string;
     uri: string;
@@ -20,6 +21,7 @@ export interface globalStateInterface {
 export const globalState: Writable<globalStateInterface> = writable({
 	uri: '',
 	neededChainId: '137',
+    neededChainRPC: 'https://rpc-mainnet.matic.network/',
 	neededChainName: 'פוליגון',
 	image: '',
 	ownedToken: 0,
