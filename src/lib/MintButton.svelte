@@ -72,7 +72,7 @@
   {/if}
   <div class="font-mono p-2">
     {#if $globalState.balance === "0.0" && $globalState.chainId === $globalState.neededChainId}
-      <div class="text-red-300">אין לכם יתרה להפעלת ההגרלה</div>
+      <div class="text-red-300">אין לכם מספיק יתרה כדי להשתתף בחיפוש האפיקומן</div>
       <div class="text-red-500">Matic balance: {$globalState.balance}</div>
     {/if}
   </div>
