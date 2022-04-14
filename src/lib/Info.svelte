@@ -1,4 +1,4 @@
-<div class="text-right m-auto w-1/3 flex flex-col space-y-4">
+<div class="text-right m-auto p-4 sm:p-0 sm:w-1/3 flex flex-col space-y-4">
   <h1 class="text-right text-white text-2xl">?אז איך זה עובד</h1>
   <h1 class="text-right text-white text-xl">
     <div>
