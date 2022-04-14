@@ -7,7 +7,7 @@
   onMount(async () => {});
   $: tickets = $globalState.totalSupply;
   $: winner = $globalState.winner;
-  $: hasWinner = $globalState.winner !==0x0000000000000000000000000000000000000000
+  $: hasWinner = $globalState.winner.toString() !=='0x0000000000000000000000000000000000000000'
 ;
 </script>
 
