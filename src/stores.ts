@@ -19,8 +19,8 @@ export interface globalStateInterface {
 }
 export const globalState: Writable<globalStateInterface> = writable({
 	uri: '',
-	neededChainId: '80001',
-	neededChainName: 'פוליגון מומבאי',
+	neededChainId: '137',
+	neededChainName: 'פוליגון',
 	image: '',
 	ownedToken: 0,
 	totalSupply: 0,
