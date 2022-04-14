@@ -9,14 +9,17 @@ import LinksBoard from "$lib/LinksBoard.svelte";
 <body class="bg-black text-white text-center flex flex-col font-heebo">
   <ConnectButton />
   <h1 class="text-center text-white p-12 mt-2 text-6xl">האפיקומן</h1>
-  <h1 class="text-center text-white text-2xl">של קהילת ווב3</h1>
+  <h1 class="text-center text-white text-3xl">של קהילת ווב3</h1>
+   <h1 class="text-center text-white text-2xl">אז איך זה עובד?</h1>
+  <h1 class="text-center text-white text-1xl">יצרנו חוזה חכם והטמנו בתוכו ״אפיקומן״<br />כל כתובת יכולה ״לחפש״ את האפיקומן פעם אחת בחוזה<br />בתום סדר הפסח החוזה חכם יגיד לנו מי מהמחפשים ניצח ומצא את האפיקומן<br />כל המשתתפים יזכו בניפטי השתתפות. <br />אבל רק אחד יקבל את חבילת הפרס - הזכות לבחור נושא / פרוייקט מעניין, וחברי הקהילה וצוות המחקר של קוליידר יבצעו מחקר ויפרסמו את הסקירה בקהילה בספייס הבא בטוויטר
+</h1>
   {#if ( $globalState.ownedToken === undefined || $globalState.ownedToken === 0)}
     <MintButton />
   {:else}
     <div class="text-center">
       <img src={$globalState.image} alt="NFT" class="mx-auto my-2 h-64" />
       <div class="text-gray-400 p-4">
-        קנית כרטיס מספר {$globalState.ownedToken}
+        את.ה המחפש.ת מספר {$globalState.ownedToken}
       </div>
     </div>
   {/if}
@@ -24,7 +27,7 @@ import LinksBoard from "$lib/LinksBoard.svelte";
   <LinksBoard/>
   <div class="fixed bottom-0 p-2 m-auto text-center text-gray-400 text-sm italic flex space-x-6">
       <div class="">
-        Credits: Yotam Bar-On, ChagitR, Royo
+        Credits: Yotam Bar-On, ChagitR, Royo, Eylon
       </div>
       <a href='https://github.com/royosherove/afikoman' class="text-blue-400 ">github</a>
       <a href='https://polygonscan.com/address/{$globalState.contractAddress}#code' class="text-blue-400 ">contract</a>
