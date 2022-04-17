@@ -13,7 +13,6 @@
     // }
     // connect();
   });
-
   async function mint() {
     await mintNft(
       $globalState.provider,
@@ -31,8 +30,8 @@
       params: [
         {
           chainId: ethers.utils.hexValue(parseInt($globalState.neededChainId)),
-          rpcUrls: ["https://rpc-mainnet.matic.network/"],
-          chainName: "Matic Testnet (Mumbai)",
+          rpcUrls: [$globalState.neededChainRPC],
+          chainName: $globalState.neededChainId,
           nativeCurrency: {
             name: "MATIC",
             symbol: "MATIC",
@@ -62,7 +61,7 @@
         >כדי לעבור רשת לחצו כאן</button
       >
     </div>
-  {:else if $globalState.provider !== undefined && $globalState.balance !== "0.0" && $globalState.winner===0}
+  {:else if $globalState.provider !== undefined && $globalState.balance !== "0.0" }
     <button
       on:click={mint}
       class=" w-auto m-auto mt-2 text-center font-semibold  text-yellow-200 font-mono p-2 rounded truncate border border-white"
