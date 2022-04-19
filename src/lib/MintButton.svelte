@@ -18,7 +18,7 @@
       $globalState.provider,
       $globalState.contractAddress,
       () => (status = "sent"),
-      () => (status = "success"),
+      () => ((window as any).location.reload()),
       () => (status = "failed")
     );
   }
