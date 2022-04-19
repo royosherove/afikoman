@@ -5,6 +5,7 @@
   import LinksBoard from "$lib/LinksBoard.svelte";
   import MintButton from "$lib/MintButton.svelte";
   import { globalState } from "../stores";
+  $: searcherNumber = (parseInt($globalState.ownedToken.toString()) + 1)
 </script>
 
 <body class="bg-black text-white text-center flex flex-col font-heebo">
@@ -18,7 +19,7 @@
     <div class="text-center">
       <img src={$globalState.image} alt="NFT" class="mx-auto my-2 h-64" />
       <div class="text-gray-400 p-4">
-        את.ה המחפש.ת מספר {$globalState.ownedToken}
+        את.ה המחפש.ת מספר {searcherNumber}
       </div>
     </div>
   {/if}
