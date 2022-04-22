@@ -61,18 +61,11 @@
         >כדי לעבור רשת לחצו כאן</button
       >
     </div>
-  {:else if $globalState.provider !== undefined && $globalState.balance !== "0.0" }
+    {:else}
     <button
-      on:click={mint}
       class=" w-auto m-auto mt-2 text-center font-semibold  text-yellow-200 font-mono p-2 rounded truncate border border-white"
     >
-      חפשו אפיקומן
+      החיפוש נגמר
     </button>
   {/if}
-  <div class="font-mono p-2">
-    {#if $globalState.balance === "0.0" && $globalState.chainId === $globalState.neededChainId}
-      <div class="text-red-300">אין לכם מספיק יתרה כדי להשתתף בחיפוש האפיקומן</div>
-      <div class="text-red-500">Matic balance: {$globalState.balance}</div>
-    {/if}
-  </div>
 </div>
