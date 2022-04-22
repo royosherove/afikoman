@@ -16,9 +16,11 @@ export interface globalStateInterface {
     image: string;
 	totalSupply:number;
 	winner: number;
+	winnerOwned: number;
 	ownedToken: number;
 }
 export const globalState: Writable<globalStateInterface> = writable({
+	winnerOwned: -1,
 	uri: '',
 	neededChainId: '137',
     neededChainRPC: 'https://rpc-mainnet.matic.network/',

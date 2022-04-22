@@ -26,8 +26,14 @@
       );
       // const nftId = await contract.getIdForAccount(forAccount);
       const promises = [contract.totalSupply(), contract._winner()];
+      let winnerOwned = -1;
       const [supply, winner] = await Promise.all(promises);
-      let image='',ownedToken=0,uri='';
+      try {
+        winnerOwned = await contract.tokenOfOwnerByIndex(winner, 0);
+      } catch (error) {}
+      let image = "",
+        ownedToken = 0,
+        uri = "";
       try {
         ownedToken = await contract.tokenOfOwnerByIndex(forAccount, 0);
         uri = await contract.tokenURI(ownedToken);
@@ -42,7 +48,14 @@
           : "https://web3il-afikoman.s3.eu-central-1.amazonaws.com/unrevealed.gif";
       }
       console.log(supply, winner);
-      return { totalSupply: supply, winner, image, ownedToken, uri };
+      return {
+        totalSupply: supply,
+        winner,
+        image,
+        ownedToken,
+        uri,
+        winnerOwned,
+      };
     } catch (error) {
       console.error(error);
       return {};

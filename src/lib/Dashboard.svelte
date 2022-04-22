@@ -18,6 +18,7 @@
     <div>מספר מחפשי אפיקומן: {tickets}</div>
     <!-- svelte-ignore a11y-label-has-associated-control -->
 {#if hasWinner}
+    <div class="flex flex-col mt-4 ">הכרטיס שניצח<div alt='winner card'>{$globalState.winnerOwned}</div></div>
     <div class="flex flex-col mt-4 ">הארנק שניצח<div alt='winner'>{winner}</div></div>
 {/if}
   </div>

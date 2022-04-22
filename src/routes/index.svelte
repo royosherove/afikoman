@@ -19,7 +19,7 @@
     <div class="text-center">
       <img src={$globalState.image} alt="NFT" class="mx-auto my-2 h-64" />
       <div class="text-gray-400 p-4">
-        את.ה המחפש.ת מספר {searcherNumber}
+        לך יש כרטיס מספר {searcherNumber}
       </div>
     </div>
   {/if}
