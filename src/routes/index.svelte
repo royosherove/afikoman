@@ -5,7 +5,7 @@
   import LinksBoard from "$lib/LinksBoard.svelte";
   import MintButton from "$lib/MintButton.svelte";
   import { globalState } from "../stores";
-  $: searcherNumber = (parseInt($globalState.ownedToken.toString()) + 1)
+  $: searcherNumber = (parseInt($globalState.ownedToken.toString()))
 </script>
 
 <body class="bg-black text-white text-center flex flex-col font-heebo">
